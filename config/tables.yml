@@ -1,0 +1,65 @@
+tables:
+
+  accounts:
+
+    primary_key:
+      - account_id
+
+    columns:
+
+      account_id: string
+      account_name: string
+      country: string
+      company_size: string
+      industry: string
+      created_at: timestamp
+      status: string
+
+
+  subscriptions:
+
+    primary_key:
+      - subscription_id
+
+    columns:
+
+      subscription_id: string
+      account_id: string
+      plan_name: string
+      plan_interval: string
+      plan_price: float
+      start_date: date
+      end_date: date
+
+
+  invoices:
+
+    primary_key:
+      - invoice_id
+
+    columns:
+
+      invoice_id: string
+      account_id: string
+      subscription_id: string
+      amount: float
+      currency: string
+      status: string
+      invoice_date: date
+      paid_at: timestamp
+
+
+  exchange_rates:
+
+    primary_key:
+
+      - rate_date
+
+      - currency
+
+    columns:
+
+      rate_date: date
+      currency: string
+      rate_to_usd: float
+

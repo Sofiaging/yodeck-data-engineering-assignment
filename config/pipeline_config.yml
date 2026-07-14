@@ -1,0 +1,67 @@
+pipeline:
+
+  name: yodeck_ingestion
+
+  destination: postgres
+
+  dataset: raw
+
+
+s3:
+
+  bucket: yodeck-landing-zone
+
+  prefix: postgres_production_folder/
+
+
+tables:
+
+  accounts:
+
+    snapshot_pattern: "^accounts_(\\d{4}-\\d{2}-\\d{2})(?:_resend)?\\.csv$"
+
+  subscriptions:
+
+    snapshot_pattern: "^subscriptions_(\\d{4}-\\d{2}-\\d{2})(?:_resend)?\\.csv$"
+
+  invoices:
+
+    snapshot_pattern: "^invoices_(\\d{4}-\\d{2}-\\d{2})(?:_resend)?\\.csv$"
+
+  exchange_rates:
+
+    snapshot_pattern: "^exchange_rates_(\\d{4}-\\d{2}-\\d{2})(?:_resend)?\\.csv$"
+
+
+metadata_columns:
+
+  source_file: _source_file
+
+  snapshot_date: _snapshot_date
+
+  ingested_at: _ingested_at
+
+  checksum: _file_checksum
+
+
+validation:
+
+  validate_datatypes: true
+
+  validate_primary_keys: true
+
+  fail_on_duplicate_pk: true
+
+  fail_on_missing_snapshot_date: true
+
+
+duplicate_snapshots:
+
+  strategy: latest_last_modified
+
+
+logging:
+
+  ingestion_log_table: raw.ingestion_log
+
+  log_schema_changes: true
