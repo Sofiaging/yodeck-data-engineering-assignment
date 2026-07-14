@@ -1,0 +1,23 @@
+# Python
+.venv/
+__pycache__/
+*.pyc
+
+# Environment variables
+.env
+
+# dlt secrets
+.dlt/
+secrets.toml
+
+# dbt
+target/
+logs/
+dbt_packages/
+
+# OS files
+.DS_Store
+
+# IDE
+.vscode/
+.idea/
