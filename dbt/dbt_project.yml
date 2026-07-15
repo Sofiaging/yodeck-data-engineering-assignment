@@ -1,0 +1,33 @@
+name: "yodeck_assignment"
+version: "1.0.0"
+config-version: 2
+
+profile: "yodeck_assignment"
+
+model-paths: ["models"]
+test-paths: ["tests"]
+macro-paths: ["macros"]
+seed-paths: ["seeds"]
+snapshot-paths: ["snapshots"]
+
+target-path: "target"
+clean-targets:
+  - "target"
+  - "dbt_packages"
+
+models:
+
+  yodeck_assignment:
+
+    staging:
+
+      +schema: staging
+      +materialized: view
+
+      stg_subscription_changes:
+        +materialized: table
+
+    marts:
+
+      +schema: marts
+      +materialized: table

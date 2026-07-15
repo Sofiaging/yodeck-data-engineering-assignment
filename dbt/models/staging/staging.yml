@@ -1,0 +1,85 @@
+version: 2
+
+models:
+
+  - name: stg_accounts
+    description: Clean accounts snapshots.
+
+    columns:
+
+      - name: account_id
+        tests:
+          - unique
+          - not_null
+
+      - name: account_name
+        tests:
+          - not_null
+
+      - name: status
+        tests:
+          - not_null
+
+  - name: stg_subscriptions
+    description: Clean subscription snapshots.
+
+    columns:
+
+      - name: subscription_id
+        tests:
+          - unique
+          - not_null
+
+      - name: account_id
+        tests:
+          - not_null
+          - relationships:
+              to: ref('stg_accounts')
+              field: account_id
+
+      - name: plan_name
+        tests:
+          - not_null
+
+      - name: plan_price
+        tests:
+          - not_null
+
+  - name: stg_invoices
+    description: Clean invoice snapshots.
+
+    columns:
+
+      - name: invoice_id
+        tests:
+          - unique
+          - not_null
+
+      - name: account_id
+        tests:
+          - relationships:
+              to: ref('stg_accounts')
+              field: account_id
+
+      - name: subscription_id
+        tests:
+          - relationships:
+              to: ref('stg_subscriptions')
+              field: subscription_id
+
+      - name: amount
+        tests:
+          - not_null
+
+  - name: stg_exchange_rates
+    description: Daily FX rates.
+
+    columns:
+
+      - name: rate_date
+        tests:
+          - not_null
+
+      - name: currency
+        tests:
+          - not_null
