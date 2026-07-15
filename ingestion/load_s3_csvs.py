@@ -10,13 +10,15 @@ from s3_utils import (
     read_csv_from_s3,
     calculate_checksum,
     parse_s3_key,
-    extract_snapshot_date
+    extract_snapshot_date,
+    validate_snapshot_completeness
 )
 
 from validators import (
     validate_filename,
     validate_primary_key,
-    validate_datatypes
+    validate_datatypes,
+    detect_schema_change
 )
 
 from dlt_db_utils import (
@@ -151,14 +153,27 @@ for file in files:
     })
 
 
-# ---------------------------------------------------------
-# Resolve duplicate snapshots
-# ---------------------------------------------------------
+# ------------------------------------------------------------------------
+# Resolve duplicate snapshots and validate completeness across all tables
+# ------------------------------------------------------------------------
 
 enriched_files = resolve_duplicate_snapshots(
     enriched_files
 )
 
+incomplete_dates = validate_snapshot_completeness(
+    enriched_files
+)
+
+enriched_files = [
+
+    file
+
+    for file in enriched_files
+
+    if file["snapshot_date"] not in incomplete_dates
+
+]
 
 # ---------------------------------------------------------
 # Filter files according to ingestion mode
@@ -281,12 +296,29 @@ for file in enriched_files:
         )
 
         # -------------------------------------------------
-        # Validate datatypes
+        # Detect schema change
         # -------------------------------------------------
 
         expected_schema = table_config["tables"][table_name][
             "columns"
         ]
+
+        schema_changed, schema_message = detect_schema_change(
+            df,
+            expected_schema
+        )
+
+        if schema_changed:
+
+            print("\nWARNING: Schema change detected")
+
+            print(filename)
+
+            print(schema_message)
+
+        # -------------------------------------------------
+        # Validate datatypes
+        # -------------------------------------------------
 
         validate_datatypes(
             df,
@@ -358,7 +390,7 @@ for file in enriched_files:
 
             error_message=None,
 
-            schema_change=False,
+            schema_change=schema_changed,
 
             load_id=load_id
 
@@ -439,4 +471,3 @@ print(f"Successful files : {successful}")
 print(f"Failed files     : {failed}")
 
 print("----------------------------------------")
-

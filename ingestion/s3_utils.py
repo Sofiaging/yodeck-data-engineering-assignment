@@ -195,3 +195,43 @@ def resolve_duplicate_snapshots(files: list) -> list:
 
     return list(latest.values())
 
+
+def validate_snapshot_completeness(files: list):
+    """
+    Returns the snapshot dates that are incomplete.
+    """
+
+    expected_tables = {
+        "accounts",
+        "subscriptions",
+        "invoices",
+        "exchange_rates"
+    }
+
+    snapshots = {}
+
+    for file in files:
+        snapshots.setdefault(
+            file["snapshot_date"],
+            set()
+        ).add(file["table_name"])
+
+    incomplete_dates = set()
+
+    for snapshot_date, tables in snapshots.items():
+
+        missing = expected_tables - tables
+
+        if missing:
+
+            print(
+                f"\nWARNING: Incomplete snapshot {snapshot_date}"
+            )
+
+            print(
+                f"Missing tables: {', '.join(sorted(missing))}"
+            )
+
+            incomplete_dates.add(snapshot_date)
+
+    return incomplete_dates

@@ -156,3 +156,45 @@ def validate_datatypes(
                 f"Original error:\n{e}"
             )
 
+
+def detect_schema_change(
+    df: pd.DataFrame,
+    expected_schema: dict
+):
+    """
+    Detects missing or new columns.
+
+    Returns:
+        (
+            schema_changed,
+            message
+        )
+    """
+
+    expected = set(expected_schema.keys())
+
+    actual = set(df.columns)
+
+    missing = sorted(expected - actual)
+
+    extra = sorted(actual - expected)
+
+    if not missing and not extra:
+
+        return False, None
+
+    message = []
+
+    if missing:
+
+        message.append(
+            f"Missing columns: {missing}"
+        )
+
+    if extra:
+
+        message.append(
+            f"New columns: {extra}"
+        )
+
+    return True, "; ".join(message)
