@@ -93,7 +93,9 @@ def write_ingestion_log(
     status,
     error_message,
     schema_change,
-    load_id
+    load_id,
+    ingestion_mode,
+    replaced_rows
 ):
     """
     Writes one row into raw.ingestion_log.
@@ -112,7 +114,9 @@ def write_ingestion_log(
                 "status": status,
                 "error_message": error_message,
                 "schema_change": schema_change,
-                "load_id": load_id
+                "load_id": load_id,
+                "ingestion_mode": ingestion_mode,
+                "replaced_rows": replaced_rows
             }
         ]
     )
@@ -190,3 +194,40 @@ def file_already_ingested(
 
     return exists
 
+
+# -------------------------------------------------------------------------------------------------------
+# For ingestion_mode in ('all', 'range') , delete the existing snapshot from destination table and re-load it
+# -------------------------------------------------------------------------------------------------------
+
+def delete_existing_snapshot(
+    table_name: str,
+    snapshot_date
+):
+    """
+    Deletes an existing snapshot from a raw table.
+
+    Makes full and range ingestions idempotent.
+    """
+
+    conn = get_postgres_connection()
+
+    cursor = conn.cursor()
+
+    cursor.execute(
+        f"""
+        DELETE
+        FROM raw.{table_name}
+        WHERE _snapshot_date = %s
+        """,
+        (snapshot_date,)
+    )
+
+    deleted_rows = cursor.rowcount
+
+    conn.commit()
+
+    cursor.close()
+
+    conn.close()
+
+    return deleted_rows

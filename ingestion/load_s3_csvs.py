@@ -25,7 +25,8 @@ from dlt_db_utils import (
     prepare_dataframe,
     load_table,
     write_ingestion_log,
-    file_already_ingested
+    file_already_ingested,
+    delete_existing_snapshot
 )
 
 from datetime import UTC
@@ -227,6 +228,8 @@ for file in enriched_files:
 
         snapshot_date = file["snapshot_date"]
 
+        replaced_rows = 0
+
         print(
 
             f"Processing "
@@ -350,6 +353,24 @@ for file in enriched_files:
         )
 
         # -------------------------------------------------
+        # Make full/range loads idempotent
+        # -------------------------------------------------
+
+        if mode in ("all", "range"):
+
+            replaced_rows = delete_existing_snapshot(
+                table_name,
+                snapshot_date
+            )
+
+            if replaced_rows > 0:
+
+                print(
+                    f"Replaced existing snapshot "
+                    f"{snapshot_date} "
+                    f"({replaced_rows} rows removed)."
+                )
+        # -------------------------------------------------
         # Load into PostgreSQL
         # -------------------------------------------------
 
@@ -392,7 +413,11 @@ for file in enriched_files:
 
             schema_change=schema_changed,
 
-            load_id=load_id
+            load_id=load_id,
+
+            ingestion_mode=mode,
+
+            replaced_rows=replaced_rows
 
         )
 
@@ -447,7 +472,11 @@ for file in enriched_files:
 
                 schema_change=False,
 
-                load_id=None
+                load_id=None,
+
+                ingestion_mode=mode,
+
+                replaced_rows=replaced_rows
 
             )
 
