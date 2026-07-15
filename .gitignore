@@ -12,7 +12,6 @@ secrets.toml
 
 # dbt
 target/
-logs/
 dbt_packages/
 
 # OS files

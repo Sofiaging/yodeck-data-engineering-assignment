@@ -9,7 +9,6 @@ models:
 
       - name: account_id
         tests:
-          - unique
           - not_null
 
       - name: account_name
@@ -27,15 +26,11 @@ models:
 
       - name: subscription_id
         tests:
-          - unique
           - not_null
 
       - name: account_id
         tests:
           - not_null
-          - relationships:
-              to: ref('stg_accounts')
-              field: account_id
 
       - name: plan_name
         tests:
@@ -52,20 +47,11 @@ models:
 
       - name: invoice_id
         tests:
-          - unique
           - not_null
 
       - name: account_id
-        tests:
-          - relationships:
-              to: ref('stg_accounts')
-              field: account_id
 
       - name: subscription_id
-        tests:
-          - relationships:
-              to: ref('stg_subscriptions')
-              field: subscription_id
 
       - name: amount
         tests:

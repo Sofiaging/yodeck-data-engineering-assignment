@@ -1,0 +1,548 @@
+
+Discovering files in S3...
+
+Found 28 CSV snapshot files.
+
+Duplicate snapshots detected:
+  - accounts_2026-06-10_resend.csv
+
+
+WARNING: Incomplete snapshot 2026-06-13
+Missing tables: invoices
+24 files selected for ingestion.
+
+Processing accounts_2026-06-09.csv
+✓ Successfully loaded accounts_2026-06-09.csv
+Processing accounts_2026-06-10.csv
+✓ Successfully loaded accounts_2026-06-10.csv
+Processing accounts_2026-06-11.csv
+✓ Successfully loaded accounts_2026-06-11.csv
+Processing accounts_2026-06-12.csv
+✓ Successfully loaded accounts_2026-06-12.csv
+Processing accounts_2026-06-14.csv
+
+WARNING: Schema change detected
+accounts_2026-06-14.csv
+Missing columns: ['industry']
+WARNING: Missing column 'industry'. Filled with NULL values.
+✗ Failed to load accounts_2026-06-14.csv
+Column 'created_at' cannot be validated as datatype 'timestamp'.
+
+Original error:
+time data "30/04/2024 17:44" doesn't match format "%m/%d/%Y %H:%M". You might want to try:
+    - passing `format` if your strings have a consistent format;
+    - passing `format='ISO8601'` if your strings are all ISO8601 but not necessarily in exactly the same format;
+    - passing `format='mixed'`, and the format will be inferred for each element individually. You might want to use `dayfirst` alongside this.
+Processing accounts_2026-06-15.csv
+
+WARNING: Schema change detected
+accounts_2026-06-15.csv
+Missing columns: ['industry']
+WARNING: Missing column 'industry'. Filled with NULL values.
+✗ Failed to load accounts_2026-06-15.csv
+Column 'created_at' cannot be validated as datatype 'timestamp'.
+
+Original error:
+time data "30/04/2024 17:44" doesn't match format "%m/%d/%Y %H:%M". You might want to try:
+    - passing `format` if your strings have a consistent format;
+    - passing `format='ISO8601'` if your strings are all ISO8601 but not necessarily in exactly the same format;
+    - passing `format='mixed'`, and the format will be inferred for each element individually. You might want to use `dayfirst` alongside this.
+Processing exchange_rates_2026-06-09.csv
+✓ Successfully loaded exchange_rates_2026-06-09.csv
+Processing exchange_rates_2026-06-10.csv
+✓ Successfully loaded exchange_rates_2026-06-10.csv
+Processing exchange_rates_2026-06-11.csv
+✓ Successfully loaded exchange_rates_2026-06-11.csv
+Processing exchange_rates_2026-06-12.csv
+✓ Successfully loaded exchange_rates_2026-06-12.csv
+Processing exchange_rates_2026-06-14.csv
+✓ Successfully loaded exchange_rates_2026-06-14.csv
+Processing exchange_rates_2026-06-15.csv
+✓ Successfully loaded exchange_rates_2026-06-15.csv
+Processing invoices_2026-06-09.csv
+✗ Failed to load invoices_2026-06-09.csv
+Column 'invoice_date' cannot be validated as datatype 'date'.
+
+Original error:
+day is out of range for month. You might want to try:
+    - passing `format` if your strings have a consistent format;
+    - passing `format='ISO8601'` if your strings are all ISO8601 but not necessarily in exactly the same format;
+    - passing `format='mixed'`, and the format will be inferred for each element individually. You might want to use `dayfirst` alongside this.
+Processing invoices_2026-06-10.csv
+✗ Failed to load invoices_2026-06-10.csv
+Column 'invoice_date' cannot be validated as datatype 'date'.
+
+Original error:
+day is out of range for month. You might want to try:
+    - passing `format` if your strings have a consistent format;
+    - passing `format='ISO8601'` if your strings are all ISO8601 but not necessarily in exactly the same format;
+    - passing `format='mixed'`, and the format will be inferred for each element individually. You might want to use `dayfirst` alongside this.
+Processing invoices_2026-06-11.csv
+✗ Failed to load invoices_2026-06-11.csv
+Column 'invoice_date' cannot be validated as datatype 'date'.
+
+Original error:
+day is out of range for month. You might want to try:
+    - passing `format` if your strings have a consistent format;
+    - passing `format='ISO8601'` if your strings are all ISO8601 but not necessarily in exactly the same format;
+    - passing `format='mixed'`, and the format will be inferred for each element individually. You might want to use `dayfirst` alongside this.
+Processing invoices_2026-06-12.csv
+✗ Failed to load invoices_2026-06-12.csv
+Column 'invoice_date' cannot be validated as datatype 'date'.
+
+Original error:
+day is out of range for month. You might want to try:
+    - passing `format` if your strings have a consistent format;
+    - passing `format='ISO8601'` if your strings are all ISO8601 but not necessarily in exactly the same format;
+    - passing `format='mixed'`, and the format will be inferred for each element individually. You might want to use `dayfirst` alongside this.
+Processing invoices_2026-06-14.csv
+✗ Failed to load invoices_2026-06-14.csv
+Column 'invoice_date' cannot be validated as datatype 'date'.
+
+Original error:
+day is out of range for month. You might want to try:
+    - passing `format` if your strings have a consistent format;
+    - passing `format='ISO8601'` if your strings are all ISO8601 but not necessarily in exactly the same format;
+    - passing `format='mixed'`, and the format will be inferred for each element individually. You might want to use `dayfirst` alongside this.
+Processing invoices_2026-06-15.csv
+✗ Failed to load invoices_2026-06-15.csv
+Column 'invoice_date' cannot be validated as datatype 'date'.
+
+Original error:
+day is out of range for month. You might want to try:
+    - passing `format` if your strings have a consistent format;
+    - passing `format='ISO8601'` if your strings are all ISO8601 but not necessarily in exactly the same format;
+    - passing `format='mixed'`, and the format will be inferred for each element individually. You might want to use `dayfirst` alongside this.
+Processing subscriptions_2026-06-09.csv
+✓ Successfully loaded subscriptions_2026-06-09.csv
+Processing subscriptions_2026-06-10.csv
+✓ Successfully loaded subscriptions_2026-06-10.csv
+Processing subscriptions_2026-06-11.csv
+✓ Successfully loaded subscriptions_2026-06-11.csv
+Processing subscriptions_2026-06-12.csv
+
+WARNING: Schema change detected
+subscriptions_2026-06-12.csv
+New columns: ['discount_pct']
+✓ Successfully loaded subscriptions_2026-06-12.csv
+Processing subscriptions_2026-06-14.csv
+
+WARNING: Schema change detected
+subscriptions_2026-06-14.csv
+New columns: ['discount_pct']
+✓ Successfully loaded subscriptions_2026-06-14.csv
+Processing subscriptions_2026-06-15.csv
+
+WARNING: Schema change detected
+subscriptions_2026-06-15.csv
+New columns: ['discount_pct']
+✓ Successfully loaded subscriptions_2026-06-15.csv
+
+----------------------------------------
+Ingestion completed.
+----------------------------------------
+Successful files : 16
+Failed files     : 8
+----------------------------------------
+
+Discovering files in S3...
+
+Found 28 CSV snapshot files.
+
+Duplicate snapshots detected:
+  - accounts_2026-06-10_resend.csv
+
+
+WARNING: Incomplete snapshot 2026-06-13
+Missing tables: invoices
+24 files selected for ingestion.
+
+Processing accounts_2026-06-09.csv
+Replaced existing snapshot 2026-06-09 (5000 rows removed).
+✓ Successfully loaded accounts_2026-06-09.csv
+Processing accounts_2026-06-10.csv
+Replaced existing snapshot 2026-06-10 (5400 rows removed).
+✓ Successfully loaded accounts_2026-06-10.csv
+Processing accounts_2026-06-11.csv
+Replaced existing snapshot 2026-06-11 (5800 rows removed).
+✓ Successfully loaded accounts_2026-06-11.csv
+Processing accounts_2026-06-12.csv
+Replaced existing snapshot 2026-06-12 (6200 rows removed).
+✓ Successfully loaded accounts_2026-06-12.csv
+Processing accounts_2026-06-14.csv
+
+WARNING: Schema change detected
+accounts_2026-06-14.csv
+Missing columns: ['industry']
+WARNING: Missing column 'industry'. Filled with NULL values.
+✗ Failed to load accounts_2026-06-14.csv
+Column 'created_at' cannot be validated as datatype 'timestamp'.
+
+Original error:
+time data "30/04/2024 17:44" doesn't match format "%m/%d/%Y %H:%M". You might want to try:
+    - passing `format` if your strings have a consistent format;
+    - passing `format='ISO8601'` if your strings are all ISO8601 but not necessarily in exactly the same format;
+    - passing `format='mixed'`, and the format will be inferred for each element individually. You might want to use `dayfirst` alongside this.
+Processing accounts_2026-06-15.csv
+
+WARNING: Schema change detected
+accounts_2026-06-15.csv
+Missing columns: ['industry']
+WARNING: Missing column 'industry'. Filled with NULL values.
+✗ Failed to load accounts_2026-06-15.csv
+Column 'created_at' cannot be validated as datatype 'timestamp'.
+
+Original error:
+time data "30/04/2024 17:44" doesn't match format "%m/%d/%Y %H:%M". You might want to try:
+    - passing `format` if your strings have a consistent format;
+    - passing `format='ISO8601'` if your strings are all ISO8601 but not necessarily in exactly the same format;
+    - passing `format='mixed'`, and the format will be inferred for each element individually. You might want to use `dayfirst` alongside this.
+Processing exchange_rates_2026-06-09.csv
+Replaced existing snapshot 2026-06-09 (4862 rows removed).
+✓ Successfully loaded exchange_rates_2026-06-09.csv
+Processing exchange_rates_2026-06-10.csv
+Replaced existing snapshot 2026-06-10 (4865 rows removed).
+✓ Successfully loaded exchange_rates_2026-06-10.csv
+Processing exchange_rates_2026-06-11.csv
+Replaced existing snapshot 2026-06-11 (4868 rows removed).
+✓ Successfully loaded exchange_rates_2026-06-11.csv
+Processing exchange_rates_2026-06-12.csv
+Replaced existing snapshot 2026-06-12 (4871 rows removed).
+✓ Successfully loaded exchange_rates_2026-06-12.csv
+Processing exchange_rates_2026-06-14.csv
+Replaced existing snapshot 2026-06-14 (4877 rows removed).
+✓ Successfully loaded exchange_rates_2026-06-14.csv
+Processing exchange_rates_2026-06-15.csv
+Replaced existing snapshot 2026-06-15 (4880 rows removed).
+✓ Successfully loaded exchange_rates_2026-06-15.csv
+Processing invoices_2026-06-09.csv
+✗ Failed to load invoices_2026-06-09.csv
+Column 'invoice_date' cannot be validated as datatype 'date'.
+
+Original error:
+day is out of range for month. You might want to try:
+    - passing `format` if your strings have a consistent format;
+    - passing `format='ISO8601'` if your strings are all ISO8601 but not necessarily in exactly the same format;
+    - passing `format='mixed'`, and the format will be inferred for each element individually. You might want to use `dayfirst` alongside this.
+Processing invoices_2026-06-10.csv
+✗ Failed to load invoices_2026-06-10.csv
+Column 'invoice_date' cannot be validated as datatype 'date'.
+
+Original error:
+day is out of range for month. You might want to try:
+    - passing `format` if your strings have a consistent format;
+    - passing `format='ISO8601'` if your strings are all ISO8601 but not necessarily in exactly the same format;
+    - passing `format='mixed'`, and the format will be inferred for each element individually. You might want to use `dayfirst` alongside this.
+Processing invoices_2026-06-11.csv
+✗ Failed to load invoices_2026-06-11.csv
+Column 'invoice_date' cannot be validated as datatype 'date'.
+
+Original error:
+day is out of range for month. You might want to try:
+    - passing `format` if your strings have a consistent format;
+    - passing `format='ISO8601'` if your strings are all ISO8601 but not necessarily in exactly the same format;
+    - passing `format='mixed'`, and the format will be inferred for each element individually. You might want to use `dayfirst` alongside this.
+Processing invoices_2026-06-12.csv
+✗ Failed to load invoices_2026-06-12.csv
+Column 'invoice_date' cannot be validated as datatype 'date'.
+
+Original error:
+day is out of range for month. You might want to try:
+    - passing `format` if your strings have a consistent format;
+    - passing `format='ISO8601'` if your strings are all ISO8601 but not necessarily in exactly the same format;
+    - passing `format='mixed'`, and the format will be inferred for each element individually. You might want to use `dayfirst` alongside this.
+Processing invoices_2026-06-14.csv
+✗ Failed to load invoices_2026-06-14.csv
+Column 'invoice_date' cannot be validated as datatype 'date'.
+
+Original error:
+day is out of range for month. You might want to try:
+    - passing `format` if your strings have a consistent format;
+    - passing `format='ISO8601'` if your strings are all ISO8601 but not necessarily in exactly the same format;
+    - passing `format='mixed'`, and the format will be inferred for each element individually. You might want to use `dayfirst` alongside this.
+Processing invoices_2026-06-15.csv
+✗ Failed to load invoices_2026-06-15.csv
+Column 'invoice_date' cannot be validated as datatype 'date'.
+
+Original error:
+day is out of range for month. You might want to try:
+    - passing `format` if your strings have a consistent format;
+    - passing `format='ISO8601'` if your strings are all ISO8601 but not necessarily in exactly the same format;
+    - passing `format='mixed'`, and the format will be inferred for each element individually. You might want to use `dayfirst` alongside this.
+Processing subscriptions_2026-06-09.csv
+Replaced existing snapshot 2026-06-09 (5701 rows removed).
+✓ Successfully loaded subscriptions_2026-06-09.csv
+Processing subscriptions_2026-06-10.csv
+Replaced existing snapshot 2026-06-10 (6101 rows removed).
+✓ Successfully loaded subscriptions_2026-06-10.csv
+Processing subscriptions_2026-06-11.csv
+Replaced existing snapshot 2026-06-11 (6501 rows removed).
+✓ Successfully loaded subscriptions_2026-06-11.csv
+Processing subscriptions_2026-06-12.csv
+
+WARNING: Schema change detected
+subscriptions_2026-06-12.csv
+New columns: ['discount_pct']
+Replaced existing snapshot 2026-06-12 (6901 rows removed).
+✓ Successfully loaded subscriptions_2026-06-12.csv
+Processing subscriptions_2026-06-14.csv
+
+WARNING: Schema change detected
+subscriptions_2026-06-14.csv
+New columns: ['discount_pct']
+Replaced existing snapshot 2026-06-14 (7701 rows removed).
+✓ Successfully loaded subscriptions_2026-06-14.csv
+Processing subscriptions_2026-06-15.csv
+
+WARNING: Schema change detected
+subscriptions_2026-06-15.csv
+New columns: ['discount_pct']
+Replaced existing snapshot 2026-06-15 (8101 rows removed).
+✓ Successfully loaded subscriptions_2026-06-15.csv
+
+----------------------------------------
+Ingestion completed.
+----------------------------------------
+Successful files : 16
+Failed files     : 8
+----------------------------------------
+
+Discovering files in S3...
+
+Found 28 CSV snapshot files.
+
+Duplicate snapshots detected:
+  - accounts_2026-06-10_resend.csv
+
+
+WARNING: Incomplete snapshot 2026-06-13
+Missing tables: invoices
+24 files selected for ingestion.
+
+Processing accounts_2026-06-09.csv
+Replaced existing snapshot 2026-06-09 (5000 rows removed).
+✓ Successfully loaded accounts_2026-06-09.csv
+Processing accounts_2026-06-10.csv
+Replaced existing snapshot 2026-06-10 (5400 rows removed).
+✓ Successfully loaded accounts_2026-06-10.csv
+Processing accounts_2026-06-11.csv
+Replaced existing snapshot 2026-06-11 (5800 rows removed).
+✓ Successfully loaded accounts_2026-06-11.csv
+Processing accounts_2026-06-12.csv
+Replaced existing snapshot 2026-06-12 (6200 rows removed).
+✓ Successfully loaded accounts_2026-06-12.csv
+Processing accounts_2026-06-14.csv
+
+WARNING: Schema change detected
+accounts_2026-06-14.csv
+Missing columns: ['industry']
+WARNING: Missing column 'industry'. Filled with NULL values.
+✗ Failed to load accounts_2026-06-14.csv
+Column 'created_at' cannot be validated as datatype 'timestamp'.
+
+Original error:
+time data "30/04/2024 17:44" doesn't match format "%m/%d/%Y %H:%M". You might want to try:
+    - passing `format` if your strings have a consistent format;
+    - passing `format='ISO8601'` if your strings are all ISO8601 but not necessarily in exactly the same format;
+    - passing `format='mixed'`, and the format will be inferred for each element individually. You might want to use `dayfirst` alongside this.
+Processing accounts_2026-06-15.csv
+
+WARNING: Schema change detected
+accounts_2026-06-15.csv
+Missing columns: ['industry']
+WARNING: Missing column 'industry'. Filled with NULL values.
+✗ Failed to load accounts_2026-06-15.csv
+Column 'created_at' cannot be validated as datatype 'timestamp'.
+
+Original error:
+time data "30/04/2024 17:44" doesn't match format "%m/%d/%Y %H:%M". You might want to try:
+    - passing `format` if your strings have a consistent format;
+    - passing `format='ISO8601'` if your strings are all ISO8601 but not necessarily in exactly the same format;
+    - passing `format='mixed'`, and the format will be inferred for each element individually. You might want to use `dayfirst` alongside this.
+Processing exchange_rates_2026-06-09.csv
+Replaced existing snapshot 2026-06-09 (4862 rows removed).
+✓ Successfully loaded exchange_rates_2026-06-09.csv
+Processing exchange_rates_2026-06-10.csv
+Replaced existing snapshot 2026-06-10 (4865 rows removed).
+✓ Successfully loaded exchange_rates_2026-06-10.csv
+Processing exchange_rates_2026-06-11.csv
+Replaced existing snapshot 2026-06-11 (4868 rows removed).
+✓ Successfully loaded exchange_rates_2026-06-11.csv
+Processing exchange_rates_2026-06-12.csv
+Replaced existing snapshot 2026-06-12 (4871 rows removed).
+✓ Successfully loaded exchange_rates_2026-06-12.csv
+Processing exchange_rates_2026-06-14.csv
+Replaced existing snapshot 2026-06-14 (4877 rows removed).
+✓ Successfully loaded exchange_rates_2026-06-14.csv
+Processing exchange_rates_2026-06-15.csv
+Replaced existing snapshot 2026-06-15 (4880 rows removed).
+✓ Successfully loaded exchange_rates_2026-06-15.csv
+Processing invoices_2026-06-09.csv
+✗ Failed to load invoices_2026-06-09.csv
+Column 'invoice_date' cannot be validated as datatype 'date'.
+
+Original error:
+day is out of range for month. You might want to try:
+    - passing `format` if your strings have a consistent format;
+    - passing `format='ISO8601'` if your strings are all ISO8601 but not necessarily in exactly the same format;
+    - passing `format='mixed'`, and the format will be inferred for each element individually. You might want to use `dayfirst` alongside this.
+Processing invoices_2026-06-10.csv
+✗ Failed to load invoices_2026-06-10.csv
+Column 'invoice_date' cannot be validated as datatype 'date'.
+
+Original error:
+day is out of range for month. You might want to try:
+    - passing `format` if your strings have a consistent format;
+    - passing `format='ISO8601'` if your strings are all ISO8601 but not necessarily in exactly the same format;
+    - passing `format='mixed'`, and the format will be inferred for each element individually. You might want to use `dayfirst` alongside this.
+Processing invoices_2026-06-11.csv
+✗ Failed to load invoices_2026-06-11.csv
+Column 'invoice_date' cannot be validated as datatype 'date'.
+
+Original error:
+day is out of range for month. You might want to try:
+    - passing `format` if your strings have a consistent format;
+    - passing `format='ISO8601'` if your strings are all ISO8601 but not necessarily in exactly the same format;
+    - passing `format='mixed'`, and the format will be inferred for each element individually. You might want to use `dayfirst` alongside this.
+Processing invoices_2026-06-12.csv
+✗ Failed to load invoices_2026-06-12.csv
+Column 'invoice_date' cannot be validated as datatype 'date'.
+
+Original error:
+day is out of range for month. You might want to try:
+    - passing `format` if your strings have a consistent format;
+    - passing `format='ISO8601'` if your strings are all ISO8601 but not necessarily in exactly the same format;
+    - passing `format='mixed'`, and the format will be inferred for each element individually. You might want to use `dayfirst` alongside this.
+Processing invoices_2026-06-14.csv
+✗ Failed to load invoices_2026-06-14.csv
+Column 'invoice_date' cannot be validated as datatype 'date'.
+
+Original error:
+day is out of range for month. You might want to try:
+    - passing `format` if your strings have a consistent format;
+    - passing `format='ISO8601'` if your strings are all ISO8601 but not necessarily in exactly the same format;
+    - passing `format='mixed'`, and the format will be inferred for each element individually. You might want to use `dayfirst` alongside this.
+Processing invoices_2026-06-15.csv
+✗ Failed to load invoices_2026-06-15.csv
+Column 'invoice_date' cannot be validated as datatype 'date'.
+
+Original error:
+day is out of range for month. You might want to try:
+    - passing `format` if your strings have a consistent format;
+    - passing `format='ISO8601'` if your strings are all ISO8601 but not necessarily in exactly the same format;
+    - passing `format='mixed'`, and the format will be inferred for each element individually. You might want to use `dayfirst` alongside this.
+Processing subscriptions_2026-06-09.csv
+Replaced existing snapshot 2026-06-09 (5701 rows removed).
+✓ Successfully loaded subscriptions_2026-06-09.csv
+Processing subscriptions_2026-06-10.csv
+Replaced existing snapshot 2026-06-10 (6101 rows removed).
+✓ Successfully loaded subscriptions_2026-06-10.csv
+Processing subscriptions_2026-06-11.csv
+Replaced existing snapshot 2026-06-11 (6501 rows removed).
+✓ Successfully loaded subscriptions_2026-06-11.csv
+Processing subscriptions_2026-06-12.csv
+
+WARNING: Schema change detected
+subscriptions_2026-06-12.csv
+New columns: ['discount_pct']
+Replaced existing snapshot 2026-06-12 (6901 rows removed).
+✓ Successfully loaded subscriptions_2026-06-12.csv
+Processing subscriptions_2026-06-14.csv
+
+WARNING: Schema change detected
+subscriptions_2026-06-14.csv
+New columns: ['discount_pct']
+Replaced existing snapshot 2026-06-14 (7701 rows removed).
+✓ Successfully loaded subscriptions_2026-06-14.csv
+Processing subscriptions_2026-06-15.csv
+
+WARNING: Schema change detected
+subscriptions_2026-06-15.csv
+New columns: ['discount_pct']
+Replaced existing snapshot 2026-06-15 (8101 rows removed).
+✓ Successfully loaded subscriptions_2026-06-15.csv
+
+----------------------------------------
+Ingestion completed.
+----------------------------------------
+Successful files : 16
+Failed files     : 8
+----------------------------------------
+
+Discovering files in S3...
+
+Found 28 CSV snapshot files.
+
+Duplicate snapshots detected:
+  - accounts_2026-06-10_resend.csv
+
+
+WARNING: Incomplete snapshot 2026-06-13
+Missing tables: invoices
+12 files selected for ingestion.
+
+Processing accounts_2026-06-10.csv
+Replaced existing snapshot 2026-06-10 (5400 rows removed).
+✓ Successfully loaded accounts_2026-06-10.csv
+Processing accounts_2026-06-11.csv
+Replaced existing snapshot 2026-06-11 (5800 rows removed).
+✓ Successfully loaded accounts_2026-06-11.csv
+Processing accounts_2026-06-12.csv
+Replaced existing snapshot 2026-06-12 (6200 rows removed).
+✓ Successfully loaded accounts_2026-06-12.csv
+Processing exchange_rates_2026-06-10.csv
+Replaced existing snapshot 2026-06-10 (4865 rows removed).
+✓ Successfully loaded exchange_rates_2026-06-10.csv
+Processing exchange_rates_2026-06-11.csv
+Replaced existing snapshot 2026-06-11 (4868 rows removed).
+✓ Successfully loaded exchange_rates_2026-06-11.csv
+Processing exchange_rates_2026-06-12.csv
+Replaced existing snapshot 2026-06-12 (4871 rows removed).
+✓ Successfully loaded exchange_rates_2026-06-12.csv
+Processing invoices_2026-06-10.csv
+✗ Failed to load invoices_2026-06-10.csv
+Column 'invoice_date' cannot be validated as datatype 'date'.
+
+Original error:
+day is out of range for month. You might want to try:
+    - passing `format` if your strings have a consistent format;
+    - passing `format='ISO8601'` if your strings are all ISO8601 but not necessarily in exactly the same format;
+    - passing `format='mixed'`, and the format will be inferred for each element individually. You might want to use `dayfirst` alongside this.
+Processing invoices_2026-06-11.csv
+✗ Failed to load invoices_2026-06-11.csv
+Column 'invoice_date' cannot be validated as datatype 'date'.
+
+Original error:
+day is out of range for month. You might want to try:
+    - passing `format` if your strings have a consistent format;
+    - passing `format='ISO8601'` if your strings are all ISO8601 but not necessarily in exactly the same format;
+    - passing `format='mixed'`, and the format will be inferred for each element individually. You might want to use `dayfirst` alongside this.
+Processing invoices_2026-06-12.csv
+✗ Failed to load invoices_2026-06-12.csv
+Column 'invoice_date' cannot be validated as datatype 'date'.
+
+Original error:
+day is out of range for month. You might want to try:
+    - passing `format` if your strings have a consistent format;
+    - passing `format='ISO8601'` if your strings are all ISO8601 but not necessarily in exactly the same format;
+    - passing `format='mixed'`, and the format will be inferred for each element individually. You might want to use `dayfirst` alongside this.
+Processing subscriptions_2026-06-10.csv
+Replaced existing snapshot 2026-06-10 (6101 rows removed).
+✓ Successfully loaded subscriptions_2026-06-10.csv
+Processing subscriptions_2026-06-11.csv
+Replaced existing snapshot 2026-06-11 (6501 rows removed).
+✓ Successfully loaded subscriptions_2026-06-11.csv
+Processing subscriptions_2026-06-12.csv
+
+WARNING: Schema change detected
+subscriptions_2026-06-12.csv
+New columns: ['discount_pct']
+Replaced existing snapshot 2026-06-12 (6901 rows removed).
+✓ Successfully loaded subscriptions_2026-06-12.csv
+
+----------------------------------------
+Ingestion completed.
+----------------------------------------
+Successful files : 9
+Failed files     : 3
+----------------------------------------
